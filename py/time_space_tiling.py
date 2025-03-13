@@ -161,6 +161,7 @@ def tile(plik, block, permute, output_file="", L="0", SIMPLIFY="False", perfect_
     sched_dump = iscc.iscc_communicate(text)
 
     print(sched_dump)
+    sched_dump = sched_dump.decode('utf-8')
 
     lines = sched_dump.split('\n')
     sched_maps = sched_parser.parse(lines, cl, symb_prefix)
