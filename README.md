@@ -22,8 +22,6 @@ make all
 
 tar xvzf barvinok-0.41.tar.gz & cd barvinok-0.41 & ./configure & make & sudo make install & cd ..
 
-nano barv_script //correct path
-
 tar xvzf clan-0.8.0.tar.gz & cd clan-0.8.0 & ./configure & make & sudo make install //optional & cd ..
 
 git clone https://github.com/tobiasgrosser/islplot
