@@ -19,7 +19,7 @@ import scc
 
 
 
-from easyprocess import Proc
+from easyprocess import EasyProcess
 import tiling_v3
 from multiprocessing import Pool
 
@@ -161,8 +161,8 @@ def CorrectFile(name, priv_vars_extra, reduce_op):
 
 def IND_Gen(inp, LD_inp, IND_loop):
  #LD IND LOOP
-    line_r=Proc(path_framework + " " + inp + " --return=1 " +  silent_mode ).call(timeout=5).stdout
-    line_ld=Proc(path_framework + " " + LD_inp + " --return=1 " +  silent_mode ).call(timeout=5).stdout
+    line_r=EasyProcess(path_framework + " " + inp + " --return=1 " +  silent_mode ).call(timeout=5).stdout
+    line_ld=EasyProcess(path_framework + " " + LD_inp + " --return=1 " +  silent_mode ).call(timeout=5).stdout
     #line_r = line_r.replace("\n", "")
     line_ld = line_ld.replace("\n", "")
     
@@ -315,7 +315,7 @@ def Gen(file_C, _scc, permute):
             cmd = path_framework + " " + inp + " " + out_command + outp + " " + silent_mode + " --fs_pragma=" + rpath + " " + _str + " --ind_loop=" + IND_loop    
             #process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
             #process.wait()
-            stdout=Proc(cmd).call(timeout=5).stdout
+            stdout=EasyProcess(cmd).call(timeout=5).stdout
 
             with open("tmp/debug.txt", "a") as fo:
                 fo.write(stdout.encode('ascii', 'ignore').decode('ascii'))  # Zamiana bytes na str
@@ -362,7 +362,7 @@ def RelPrint(file, only_tiling=0):
     if only_tiling==1:
         cmd = cmd + " --no_sources=1" 
     print(cmd)
-    return Proc(cmd).call(timeout=25).stdout
+    return EasyProcess(cmd).call(timeout=25).stdout
 
 def RelPrint_WithPriv(file, deps_to_remove):
     deps = ""
@@ -371,20 +371,20 @@ def RelPrint_WithPriv(file, deps_to_remove):
     deps = deps[:-1]
     cmd = path_framework + " " + file + " --relation_print --silent=1 --no_sources --rem_deps=" + deps
     print(cmd)
-    return Proc(cmd).call(timeout=3600).stdout
+    return EasyProcess(cmd).call(timeout=3600).stdout
  
 # przywraca orgynialne instrukcje
 def ParsePrint(file):
     cmd = path_framework + " " + file + " --parse_print --silent=1"    
-    return Proc(cmd).call(timeout=5).stdout
+    return EasyProcess(cmd).call(timeout=5).stdout
 
 # przywraca orgynialne instrukcje - nieuzywane
 def ParsePrint2(file, z):
     cmd = path_framework + " " + file + " --parse_print="+str(z)+" --silent=1"    
-    return Proc(cmd).call(timeout=5).stdout
+    return EasyProcess(cmd).call(timeout=5).stdout
  
 
 
 def Petit_Rel(file):
     cmd = path_petit_rel + " " + file
-    return Proc(cmd).call(timeout=5).stdout
+    return EasyProcess(cmd).call(timeout=5).stdout
