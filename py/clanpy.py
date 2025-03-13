@@ -1,6 +1,6 @@
 # CLAN & CANDL INTERFACE FOR TRACO 2015
 
-from easyprocess import Proc
+from easyprocess import EasyProcess
 import sys
 import re
 import convert_loop
@@ -71,7 +71,7 @@ class ClanPy:
 
     def Load(self):
         cmd = self.clan_path + " " + self.loop_path
-        lines = Proc(cmd).call(timeout=5).stdout
+        lines = EasyProcess(cmd).call(timeout=5).stdout
 
         fo = open("test.clan", "w")
         fo.write(lines)
