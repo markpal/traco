@@ -12,7 +12,7 @@ https://traco.sourceforge.net/nussinov.html
 
 =====
 
-Quick Install
+Clone it & Quick Install
 
 sudo apt install flex bison libboost-regex-dev libgmp-dev libntl-dev  graphviz graphviz-dev
 
