@@ -649,7 +649,7 @@ def Scatter(R, cl, StatementinRange):
             if s in strR[i]:
 
 
-                res = re.findall(r'S'+str(st.petit_line)+'\[[^\]]+', strR[i])
+                res = re.findall(r'S'+str(st.petit_line)+r'\[[^\]]+', strR[i])
 
 
                 a = st.scatering
