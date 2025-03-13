@@ -1,0 +1,15 @@
+integer xxyyyx
+builtin integer myfun()
+integer i
+integer N
+integer j
+integer k
+integer S(0:9999,0:9999)
+for i = N-1 to 0 by -1 do
+for j = i+1 to N-1 do
+for k = 0 to j-i-1 do
+S(i,j)=MAX(S(i,k+i)+S(k+i+1,j),S(i,j))
+endfor
+S(i,j)=MAX(S(i,j),S(i+1,j-1))+MAX(i,j)
+endfor
+endfor

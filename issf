@@ -1,0 +1,4 @@
+#!/bin/bash
+RPATH=`realpath $0`
+RPATH=`dirname $RPATH`
+python3  $RPATH/py/find_loops.py $1 $RPATH $2 $3 $4 $5

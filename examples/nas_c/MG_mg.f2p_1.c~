@@ -1,0 +1,12 @@
+int main(){
+#pragma scop
+
+for(ax = 1; ax <= 3; ax++){
+  for(k = N1; k <= N2; k++){
+    ng[ax][k] = ng[ax][k+1]/2;
+  }
+}
+
+
+#pragma endscop
+}

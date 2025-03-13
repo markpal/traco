@@ -1,0 +1,9 @@
+for(col = 1; col <= N1; col++){
+  tcpre[col][1]=tmp[col][1];
+  for(j = 2; j <= N2; j++){
+    for(i = 1; i <= N3; i++){
+      tcpre[col][j] = tcpre[col][j] + qbnew[j-1][i][1]* tmp[col][i];
+    }
+  }
+}
+

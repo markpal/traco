@@ -1,0 +1,60 @@
+#!/bin/bash
+echo "C++ packages..."
+sudo apt-get install libgmp-dev libntl-dev flex bison libffi6 libffi-dev
+if [ ! -f barvinok-0.41.tar.gz ]
+then
+ echo "Barvinok download..."
+ wget https://barvinok.sourceforge.io/barvinok-0.41.tar.gz
+ echo "Barvinok unpack..."
+ tar xvzf barvinok-0.41.tar.gz
+fi
+if [ ! -f barvinok-0.41/iscc ]
+then
+ echo "Barvinok setup..."
+ cd barvinok-0.41
+ ./configure --enable-shared-barvinok
+ make
+ sudo make install
+ sudo ln -s /usr/local/lib/libbarvinok.so /usr/lib/libbarvinok.so
+ sudo ln -s /usr/local/lib/libisl-polylib.so.0 /usr/lib/libisl-polylib.so.0
+ sudo ln -s /usr/local/lib/libpolylibgmp.so.8 /usr/lib/libpolylibgmp.so.8
+ cd ..
+fi
+echo "Other packages..."
+sudo apt-get install realpath libboost-regex-dev libboost-graph-dev
+echo "Python packages..."
+sudo apt-get install python-pip python-dev
+echo "ISLPY..."
+sudo pip install islpy==2018.2
+sudo pip install tqdm
+sudo pip install paramiko
+sudo pip install pygraph
+sudo pip install python-graph-core
+sudo pip install python-graph-dot
+sudo pip install easyprocess pexpect
+sudo pip install pydot
+sudo pip install graphviz
+sudo pip install termcolor
+sudo pip install matplotlib
+echo "Almost done, graphviz..."
+sudo apt-get install graphviz libgv-python python-pygraphviz python-pydot python-tk
+#sudo easy_install python-graph-core python-graph-dot
+echo "Clan install"
+wget http://icps.u-strasbg.fr/people/bastoul/public_html/development/clan/docs/clan-0.8.0.tar.gz
+tar xvzf clan-0.8.0.tar.gz
+cd clan-0.8.0
+./configure
+make
+sudo make install
+cd ..
+sudo ln -s "$PWD"/issf /usr/bin/issf
+if [ ! -f framework/obj/framework ]
+then
+echo "TRACO compiling..."
+make all
+make framework
+fi
+rm barv_script
+echo "$PWD/barvinok-0.41/iscc < barvinok_input > ppp" >> barv_script
+echo "touch lock" >> barv_script
+echo "Done."

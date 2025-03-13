@@ -1,0 +1,45 @@
+p := parse_file "testw.c";
+
+Domain := p[0];
+
+Write := p[1] + p[2];
+
+Read := p[3];
+
+Schedule := map p[4];
+
+print "Schedule";
+print Schedule;
+
+Before := Schedule << Schedule;
+
+
+RaW := (Write . (Read^-1)) * Before;
+WaW := (Write . (Write^-1)) * Before;
+WaR := (Read . (Write^-1)) * Before;
+
+print "LD";
+print Domain;
+
+print "RaW deps";
+print RaW;
+
+print "WaW deps";
+print WaW;
+
+print "WaR deps";
+print WaR;
+
+R := WaR + WaW + RaW;
+
+print "R";
+R;
+
+
+LDR := domain R + range R; 
+
+IND := Domain - LDR;
+
+print "IND";
+print IND;
+

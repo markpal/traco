@@ -1,0 +1,5 @@
+for(k = 2; k <= N1; k++){
+  dummy = randlc[start][ an];
+  RanStarts[k] = start;
+}
+

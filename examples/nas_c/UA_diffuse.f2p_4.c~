@@ -1,0 +1,16 @@
+int main(){
+#pragma scop
+
+for(iz = 1; iz <= N1; iz++){
+  for(k = 1; k <= N2; k++){
+    for(j = 1; j <= N3; j++){
+      for(i = 1; i <= N4; i++){
+        tm2[i][j][iz] = tm2[i][j][iz]+u[i][k][iz]*wdtdr[k][j];
+      }
+    }
+  }
+}
+
+
+#pragma endscop
+}

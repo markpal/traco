@@ -1,0 +1,16 @@
+int main(){
+#pragma scop
+
+for(col = 1; col <= N1; col++){
+  i = 1;
+  tx[col][i]   = tx[col][i]   + tmp[col][i];
+  for(i = 2; i <= N2; i++){
+    for(j = 1; j <= N3; j++){
+      tx[col][i] = tx[col][i] + qbnew[i-1][j][1]*tmp[col][j];
+    }
+  }
+}
+
+
+#pragma endscop
+}

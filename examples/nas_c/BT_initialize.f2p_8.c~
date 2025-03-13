@@ -1,0 +1,17 @@
+int main(){
+#pragma scop
+
+for(z = 1; z <= 5; z++){
+  for(n = 1; n <= 5; n++){
+    lhs[z][n][1][0] = 0.0;
+    lhs[z][n][2][0] = 0.0;
+    lhs[z][n][3][0] = 0.0;
+    lhs[z][n][1][i] = 0.0;
+    lhs[z][n][2][i] = 0.0;
+    lhs[z][n][3][i] = 0.0;
+  }
+}
+
+
+#pragma endscop
+}

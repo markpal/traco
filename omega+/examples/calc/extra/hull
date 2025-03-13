@@ -1,0 +1,27 @@
+# test new hull calculation method RectHull
+
+symbolic m,n;
+
+r1 := {[i,j]: i>=0 && j>=0 && i+j<=1};
+r2 := {[i,j]: j>=0 && i<=1 && j<=i};
+
+ConvexHull (r1 union r2);
+RectHull (r1 union r2);
+QuickHull (r1 union r2);
+Hull (r1 union r2);
+
+r1 := {[i]:i<=n && n>=7};
+r2 := {[i]:i<=n-2 && n>=6};
+
+ConvexHull (r1 union r2);
+RectHull (r1 union r2);
+QuickHull (r1 union r2);
+Hull (r1 union r2);
+
+r1 := {[i,j]:0<=i,j<=2};
+r2 := {[i,j]:0<=i && 1<=j && i+j<=4};
+
+ConvexHull (r1 union r2);
+RectHull (r1 union r2);
+QuickHull (r1 union r2);
+Hull (r1 union r2);

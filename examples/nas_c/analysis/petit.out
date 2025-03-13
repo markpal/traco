@@ -1,0 +1,102 @@
+output  26: xxyyyx          -->  26: xxyyyx          (0,0,+)         [ Mo]
+{[i3,i2,i1] -> [i3,i2,i1'] : N5 <= i1 < i1' <= N6 && N3 <= i2 <= N4 && N1 <= i3 <= N2}
+exact dd: {[0,0,In_3]: 1 <= In_3}
+output  26: xxyyyx          -->  26: xxyyyx          (0,+,*)         [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : N3 <= i2 < i2' <= N4 && N5 <= i1,i1' <= N6 && N1 <= i3 <= N2}
+exact dd: {[0,In_2,In_3]: 1 <= In_2}
+output  26: xxyyyx          -->  26: xxyyyx          (+,*,*)         [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N5 <= i1,i1' <= N6 && N3 <= i2,i2' <= N4}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  26: xxyyyx          -->  29: xxyyyx          (0,0)           [ Mo]
+{[i3,i2,i1] -> [i3,i2,i1'] : N3 <= i2 <= N4 && N1 <= i3 <= N2 && N5 <= i1 <= N6 && 1 <= i1' <= N7}
+exact dd: {[0,0,In_3]}
+output  26: xxyyyx          -->  29: xxyyyx          (0,+)           [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : N3 <= i2 < i2' <= N4 && N1 <= i3 <= N2 && N5 <= i1 <= N6 && 1 <= i1' <= N7}
+exact dd: {[0,In_2,In_3]: 1 <= In_2}
+output  26: xxyyyx          -->  29: xxyyyx          (+,*)           [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N3 <= i2,i2' <= N4 && N5 <= i1 <= N6 && 1 <= i1' <= N7}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  26: xxyyyx          -->  34: xxyyyx          (0)             [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : N9 <= i1' <= N10 && N1 <= i3 <= N2 && N5 <= i1 <= N6 && N3 <= i2 <= N4 && 1 <= i2' <= N8}
+exact dd: {[0,In_2,In_3]}
+output  26: xxyyyx          -->  34: xxyyyx          (+)             [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N9 <= i1' <= N10 && N5 <= i1 <= N6 && N3 <= i2 <= N4 && 1 <= i2' <= N8}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  26: xxyyyx          -->  37: xxyyyx          (0)             [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : N1 <= i3 <= N2 && N5 <= i1 <= N6 && N3 <= i2 <= N4 && 1 <= i1' <= N11 && 1 <= i2' <= N8}
+exact dd: {[0,In_2,In_3]}
+output  26: xxyyyx          -->  37: xxyyyx          (+)             [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N5 <= i1 <= N6 && N3 <= i2 <= N4 && 1 <= i2' <= N8 && 1 <= i1' <= N11}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  29: xxyyyx          -->  26: xxyyyx          (0,+)           [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : N3 <= i2 < i2' <= N4 && N1 <= i3 <= N2 && N5 <= i1' <= N6 && 1 <= i1 <= N7}
+exact dd: {[0,In_2,In_3]: 1 <= In_2}
+output  29: xxyyyx          -->  26: xxyyyx          (+,*)           [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N3 <= i2,i2' <= N4 && N5 <= i1' <= N6 && 1 <= i1 <= N7}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  29: xxyyyx          -->  29: xxyyyx          (0,0,+)         [ Mo]
+{[i3,i2,i1] -> [i3,i2,i1'] : 1 <= i1 < i1' <= N7 && N3 <= i2 <= N4 && N1 <= i3 <= N2}
+exact dd: {[0,0,In_3]: 1 <= In_3}
+output  29: xxyyyx          -->  29: xxyyyx          (0,+,*)         [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : N3 <= i2 < i2' <= N4 && N1 <= i3 <= N2 && 1 <= i1 <= N7 && 1 <= i1' <= N7}
+exact dd: {[0,In_2,In_3]: 1 <= In_2}
+output  29: xxyyyx          -->  29: xxyyyx          (+,*,*)         [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N3 <= i2,i2' <= N4 && 1 <= i1 <= N7 && 1 <= i1' <= N7}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  29: xxyyyx          -->  34: xxyyyx          (0)             [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : N9 <= i1' <= N10 && N1 <= i3 <= N2 && N3 <= i2 <= N4 && 1 <= i1 <= N7 && 1 <= i2' <= N8}
+exact dd: {[0,In_2,In_3]}
+output  29: xxyyyx          -->  34: xxyyyx          (+)             [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N9 <= i1' <= N10 && N3 <= i2 <= N4 && 1 <= i1 <= N7 && 1 <= i2' <= N8}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  29: xxyyyx          -->  37: xxyyyx          (0)             [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : N1 <= i3 <= N2 && N3 <= i2 <= N4 && 1 <= i1 <= N7 && 1 <= i1' <= N11 && 1 <= i2' <= N8}
+exact dd: {[0,In_2,In_3]}
+output  29: xxyyyx          -->  37: xxyyyx          (+)             [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N3 <= i2 <= N4 && 1 <= i1 <= N7 && 1 <= i2' <= N8 && 1 <= i1' <= N11}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  34: xxyyyx          -->  26: xxyyyx          (+)             [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N9 <= i1 <= N10 && N5 <= i1' <= N6 && N3 <= i2' <= N4 && 1 <= i2 <= N8}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  34: xxyyyx          -->  29: xxyyyx          (+)             [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N9 <= i1 <= N10 && N3 <= i2' <= N4 && 1 <= i2 <= N8 && 1 <= i1' <= N7}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  34: xxyyyx          -->  34: xxyyyx          (0,0,+)         [ Mo]
+{[i3,i2,i1] -> [i3,i2,i1'] : N9 <= i1 < i1' <= N10 && N1 <= i3 <= N2 && 1 <= i2 <= N8}
+exact dd: {[0,0,In_3]: 1 <= In_3}
+output  34: xxyyyx          -->  34: xxyyyx          (0,+,*)         [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : 1 <= i2 < i2' <= N8 && N9 <= i1,i1' <= N10 && N1 <= i3 <= N2}
+exact dd: {[0,In_2,In_3]: 1 <= In_2}
+output  34: xxyyyx          -->  34: xxyyyx          (+,*,*)         [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N9 <= i1,i1' <= N10 && 1 <= i2 <= N8 && 1 <= i2' <= N8}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  34: xxyyyx          -->  37: xxyyyx          (0,0)           [ Mo]
+{[i3,i2,i1] -> [i3,i2,i1'] : N1 <= i3 <= N2 && N9 <= i1 <= N10 && 1 <= i2 <= N8 && 1 <= i1' <= N11}
+exact dd: {[0,0,In_3]}
+output  34: xxyyyx          -->  37: xxyyyx          (0,+)           [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : 1 <= i2 < i2' <= N8 && N1 <= i3 <= N2 && N9 <= i1 <= N10 && 1 <= i1' <= N11}
+exact dd: {[0,In_2,In_3]: 1 <= In_2}
+output  34: xxyyyx          -->  37: xxyyyx          (+,*)           [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N9 <= i1 <= N10 && 1 <= i2 <= N8 && 1 <= i2' <= N8 && 1 <= i1' <= N11}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  37: xxyyyx          -->  26: xxyyyx          (+)             [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N5 <= i1' <= N6 && N3 <= i2' <= N4 && 1 <= i2 <= N8 && 1 <= i1 <= N11}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  37: xxyyyx          -->  29: xxyyyx          (+)             [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N3 <= i2' <= N4 && 1 <= i2 <= N8 && 1 <= i1 <= N11 && 1 <= i1' <= N7}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  37: xxyyyx          -->  34: xxyyyx          (0,+)           [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : 1 <= i2 < i2' <= N8 && N1 <= i3 <= N2 && N9 <= i1' <= N10 && 1 <= i1 <= N11}
+exact dd: {[0,In_2,In_3]: 1 <= In_2}
+output  37: xxyyyx          -->  34: xxyyyx          (+,*)           [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && N9 <= i1' <= N10 && 1 <= i2 <= N8 && 1 <= i1 <= N11 && 1 <= i2' <= N8}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}
+output  37: xxyyyx          -->  37: xxyyyx          (0,0,+)         [ Mo]
+{[i3,i2,i1] -> [i3,i2,i1'] : 1 <= i1 < i1' <= N11 && N1 <= i3 <= N2 && 1 <= i2 <= N8}
+exact dd: {[0,0,In_3]: 1 <= In_3}
+output  37: xxyyyx          -->  37: xxyyyx          (0,+,*)         [ Mo]
+{[i3,i2,i1] -> [i3,i2',i1'] : 1 <= i2 < i2' <= N8 && N1 <= i3 <= N2 && 1 <= i1 <= N11 && 1 <= i1' <= N11}
+exact dd: {[0,In_2,In_3]: 1 <= In_2}
+output  37: xxyyyx          -->  37: xxyyyx          (+,*,*)         [ Mo]
+{[i3,i2,i1] -> [i3',i2',i1'] : N1 <= i3 < i3' <= N2 && 1 <= i2 <= N8 && 1 <= i1 <= N11 && 1 <= i2' <= N8 && 1 <= i1' <= N11}
+exact dd: {[In_1,In_2,In_3]: 1 <= In_1}

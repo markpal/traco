@@ -1,0 +1,39 @@
+BUILD
+=====
+
+1. Edit Makefile.config.  There have a few things to edit, such as
+   location of system-specific files, and options for different
+   operating systems. If you don't want SUIF support, simply set
+   BUILD_SUIF as false.
+
+2. Do "make depend" in the omega directory.
+
+3. Optional, do "make clean" or "make veryclean" which removes additional
+   target files.
+
+4. Choose a target, and make it, or simply do "make".
+   Targets are: libomega.a, libcode_gen.a and oc.
+
+   You can also change to the target's obj/ subdirectory, for example
+   omega/omega_calc/obj/, and do a "make" there.
+
+
+INSTALLATION
+============
+
+You can use the Omega Library Plus in source directory since all links
+are already created in bin/, lib/ and include/ directories. If you
+want to install the library in a public directory, you need to set a
+DESTDIR in Makefile.config.  The files will be installed as:
+
+DESTDIR/    Installation root      
+  lib/      All library files go here (libomega.a, libcode_gen.a)
+  include/  
+    omega.h         Main omega include file.
+    omega/          Lbrary includes.
+    basic/          Basic includes.
+    code_gen/       Code generator includes.
+  bin/      Binaries (oc)
+
+You can change the relative layout of these files by editing the other
+destination variables in Makefile.config.

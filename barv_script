@@ -1,0 +1,2 @@
+/home/marek/traco/traco-code/barvinok-0.41/iscc < barvinok_input > ppp
+touch lock

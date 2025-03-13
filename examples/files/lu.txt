@@ -1,0 +1,116 @@
+[N] -> { [l, i, j, 15] -> [j, i, j', 15] : l >= 0 and i <= -1 + N and j >= 1 + l and j <= -1 + i and j' >= 1 + j and j' <= -1 + N; [l, i, j, 15] -> [l', i, j, 15] : l >= 0 and i <= -1 + N and j <= -1 + N and l' >= 1 + l and l' <= -1 + j and l' <= -1 + i; [l, i, j, 15] -> [i, i', j, 15] : l >= 0 and i >= 1 + l and j >= 1 + i and j <= -1 + N and i' >= 1 + i and i' <= -1 + N; [l, i, 0, 10] -> [l, i', i, 15] : l >= 0 and i >= 1 + l and i <= -1 + N and i' >= 1 + l and i' <= -1 + N; [l, i, i, 15] -> [i, i', 0, 10] : l >= 0 and i >= 1 + l and i' >= 1 + i and i' <= -1 + N; [l, i, j, 15] -> [i, j, 0, 10] : l >= 0 and i >= 1 + l and j >= 1 + i and j <= -1 + N }
+(Map("[N] -> { [l, i, j, 15] -> [l', i', j', 15] : (l >= 0 and i >= 1 + l and j >= i and l' >= j and i' >= 1 + l' and i' <= -1 + N and j' >= 1 + l' and j' <= -1 + N) or (l >= 0 and i >= 2 + l and j >= 1 + l and l' >= i and i' >= 1 + l' and i' <= -1 + N and j' >= j and j' >= 1 + l' and j' <= -1 + N) or (l >= 0 and j >= 1 + l and j <= -1 + i and l' >= 2 + l and i' >= 1 + i and i' >= 1 + l' and i' <= -1 + N and j' >= j and j' >= 1 + l' and j' <= -1 + N) or (l >= 0 and i >= 1 + l and j >= 2 + l and l' >= 2 + l and i' >= 1 + i and i' >= 1 + l' and i' <= -1 + N and j' >= j and j' >= 1 + l' and j' <= -1 + N); [l, i, 0, 10] -> [l', i', i, 15] : l >= 0 and i <= -1 + N and l' >= l and l' <= -1 + i and i' >= 1 + l' and i' <= -1 + N; [l, i, 0, 10] -> [l', i', 0, 10] : l >= 0 and i >= 1 + l and l' >= 2 + l and i' >= i and i' >= 1 + l' and i' <= -1 + N; [l, i, j, 15] -> [l', j, 0, 10] : l >= 0 and i >= 1 + l and j <= -1 + N and l' >= i and l' <= -1 + j; [l, i, 0, 10] -> [l', i', j', 15] : l >= 0 and i >= 1 + l and l' >= 1 + l and i' >= 1 + l' and i' <= -1 + N and j' >= i and j' >= 1 + l' and j' <= -1 + N; [l, i, j, 15] -> [l', i, j', 15] : l >= 0 and i <= -1 + N and j >= 1 + l and l' >= 1 + l and l' <= -1 + i and j' >= j and j' >= 1 + l' and j' <= -1 + N; [l, i, j, 15] -> [l', i', j, 15] : l >= 0 and i >= 1 + l and j <= -1 + N and l' >= 1 + l and l' <= -1 + j and i' >= 1 + i and i' >= 1 + l' and i' <= -1 + N; [l, i, j, 15] -> [l', i', 0, 10] : (l >= 0 and i >= 2 + l and j >= 1 + l and l' >= i and i' >= j and i' >= 1 + l' and i' <= -1 + N) or (l >= 0 and i >= 1 + l and j >= 1 + l and l' >= 1 + i and l' >= 1 + j and i' >= 1 + l' and i' <= -1 + N) or (l >= 0 and i >= 1 + l and j >= i and l' >= 2 + i and l' >= j and i' >= 1 + l' and i' <= -1 + N) or (l >= 0 and i >= 1 + l and j >= 2 + l and l' >= 3 + l and l' >= 1 + i and i' >= j and i' >= 1 + l' and i' <= -1 + N); [l, i, j, 15] -> [j, i', 0, 10] : l >= 0 and i >= 1 + l and j >= i and i' >= 1 + j and i' <= -1 + N; [l, i, 0, 10] -> [l', i, 0, 10] : l >= 0 and i <= -1 + N and l' >= 1 + l and l' <= -1 + i; [l, i, 0, 10] -> [i, i', 0, 10] : l >= 0 and i >= 1 + l and i' >= 1 + i and i' <= -1 + N }"), 0)
+R+ approximated. Exit!
+[N] -> { [l, i, j, 15] -> [j, i, j', 15] : l >= 0 and i <= -1 + N and j >= 1 + l and j <= -1 + i and j' >= 1 + j and j' <= -1 + N; [l, i, j, 15] -> [l', i, j, 15] : l >= 0 and i <= -1 + N and j <= -1 + N and l' >= 1 + l and l' <= -1 + j and l' <= -1 + i; [l, i, j, 15] -> [i, i', j, 15] : l >= 0 and i >= 1 + l and j >= 1 + i and j <= -1 + N and i' >= 1 + i and i' <= -1 + N; [l, i, 0, 10] -> [l, i', i, 15] : l >= 0 and i >= 1 + l and i <= -1 + N and i' >= 1 + l and i' <= -1 + N; [l, i, i, 15] -> [i, i', 0, 10] : l >= 0 and i >= 1 + l and i' >= 1 + i and i' <= -1 + N; [l, i, j, 15] -> [i, j, 0, 10] : l >= 0 and i >= 1 + l and j >= 1 + i and j <= -1 + N }
+## R
+[N] -> { [l, i, j, 15] -> [j, i, j', 15] : l >= 0 and i <= -1 + N and j >= 1 + l and j <= -1 + i and j' >= 1 + j and j' <= -1 + N; [l, i, j, 15] -> [l', i, j, 15] : l >= 0 and i <= -1 + N and j <= -1 + N and l' >= 1 + l and l' <= -1 + j and l' <= -1 + i; [l, i, j, 15] -> [i, i', j, 15] : l >= 0 and i >= 1 + l and j >= 1 + i and j <= -1 + N and i' >= 1 + i and i' <= -1 + N; [l, i, 0, 10] -> [l, i', i, 15] : l >= 0 and i >= 1 + l and i <= -1 + N and i' >= 1 + l and i' <= -1 + N; [l, i, i, 15] -> [i, i', 0, 10] : l >= 0 and i >= 1 + l and i' >= 1 + i and i' <= -1 + N; [l, i, j, 15] -> [i, j, 0, 10] : l >= 0 and i >= 1 + l and j >= 1 + i and j <= -1 + N }
+### R = R - R+ compose R
+[N] -> { [l, i, 0, 10] -> [l, i', i, 15] : l >= 0 and i >= 1 + l and i <= -1 + N and i' >= 1 + l and i' <= -1 + N; [l, i, 1 + l, 15] -> [1 + l, i, j', 15] : l >= 0 and i >= 2 + l and i <= -1 + N and j' >= 2 + l and j' <= -1 + N; [l, i, j, 15] -> [1 + l, i, j, 15] : l >= 0 and i >= 2 + l and i <= -1 + N and j >= 2 + l and j <= -1 + N; [l, 1 + l, 1 + l, 15] -> [1 + l, i', 0, 10] : l >= 0 and i' >= 2 + l and i' <= -1 + N; [l, 1 + l, j, 15] -> [1 + l, j, 0, 10] : l >= 0 and j >= 2 + l and j <= -1 + N }
+IS
+[N] -> { [l, i, j, 15] : l >= 0 and i >= 1 + l and i <= -1 + N and j >= 1 + l and j <= -1 + N; [l, i, 0, 10] : l >= 0 and i >= 1 + l and i <= -1 + N }
+### RE
+[N] -> { [l, i, j, 15] -> [l', i', j', 15] : (l >= 0 and i <= -1 + N and j >= 1 + l and j <= -1 + N and l' >= 1 + l and i' >= 1 + l' and i' <= -1 + i and j' >= 1 + l' and j' <= -1 + N) or (l >= 0 and i >= 1 + l and j <= -1 + N and l' >= 1 + l and i' >= i and i' >= 1 + l' and i' <= -1 + N and j' >= 1 + l' and j' <= -1 + j); [l, i, j, 15] -> [l, i, j', 15] : (l >= 0 and i >= 1 + l and j >= 1 + l and j' >= 1 + i and j' >= 1 + j and j' <= -1 + N) or (l >= 0 and i <= -1 + N and j >= 1 + l and j' >= 1 + j and j' <= i); [l, i, 0, 10] -> [l', i', j', 15] : l >= 0 and l' >= 1 + l and i <= -1 + N and j' <= -1 + i and i' >= 1 + l' and i' <= -1 + N and j' >= 1 + l'; [l, i, j, 15] -> [1 + l, i', j', 15] : l >= 0 and i >= 2 + l and j' >= 1 + j and i' <= -1 + N and j' <= -1 + N and i' >= 1 + i and j >= 1 + l; [l, i, j, 15] -> [l, i', j', 15] : (l >= 0 and i >= 1 + l and j >= 1 + l and j <= -1 + N and i' >= 1 + i and i' <= -1 + N and j' >= 1 + i and j' <= -1 + N) or (l >= 0 and j >= 1 + l and j <= -1 + N and i' >= 1 + i and i' <= -1 + N and j' >= 1 + l and j' <= i); [l, i, j, 15] -> [l, i', 0, 10] : (l >= 0 and i >= 1 + l and j >= 1 + l and i' >= 1 + i and i' >= 1 + j and i' <= -1 + N) or (l >= 0 and i >= 1 + l and j <= -1 + N and i' >= 1 + i and i' <= -1 + j); [l, i, j, 15] -> [l', i', 0, 10] : (l >= 0 and i <= -1 + N and j >= 1 + l and j <= -1 + N and l' >= 1 + l and l' <= -1 + i and i' >= 1 + l' and i' <= -1 + N) or (l >= 0 and i >= 1 + l and j <= -1 + N and l' >= i and i' >= 1 + l' and i' <= -1 + j); [l, 1 + l, j, 15] -> [l', i', 0, 10] : l >= 0 and l' <= 2 + l and l' <= -1 + j and i' <= -1 + N and i' >= 1 + j and l' >= 1 + l; [l, 1 + l, j, 15] -> [1 + l, i', j', 15] : l >= 0 and j' <= -1 + N and i' >= 2 + l and j >= 2 + l and i' <= -1 + N and j' >= 1 + j; [l, i, 0, 10] -> [l, i', j', 15] : (l >= 0 and i >= 1 + l and i' >= i and i' <= -1 + N and j' >= 1 + i and j' <= -1 + N) or (l >= 0 and i' >= i and i' <= -1 + N and j' >= 1 + l and j' <= -1 + i); [l, i, 0, 10] -> [l', i', 0, 10] : (l >= 0 and l' >= l and l' <= -1 + i and l' <= 1 + l and i' >= 1 + i and i' <= -1 + N) or (l >= 0 and i <= -1 + N and l' >= 1 + l and i' >= 1 + l' and i' <= -1 + i) }
+R^-1
+[N] -> { [l, i, j, 15] -> [-1 + l, i, l, 15] : l >= 1 and i >= 1 + l and i <= -1 + N and j >= 1 + l and j <= -1 + N; [l, i, j, 15] -> [-1 + l, i, j, 15] : l >= 1 and i >= 1 + l and i <= -1 + N and j >= 1 + l and j <= -1 + N; [l, i, j, 15] -> [l, j, 0, 10] : l >= 0 and j >= 1 + l and j <= -1 + N and i >= 1 + l and i <= -1 + N; [l, i, 0, 10] -> [-1 + l, l, l, 15] : l >= 1 and i >= 1 + l and i <= -1 + N; [l, i, 0, 10] -> [-1 + l, l, i, 15] : l >= 1 and i >= 1 + l and i <= -1 + N }
+### RR
+[N] -> { [l, i, 1 + l, 15] -> [l, i, j', 15] : l >= 0 and i >= 1 + l and i <= -1 + N and j' >= 2 + l and j' <= -1 + N; [l, i, 1 + l, 15] -> [1 + l, i', 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and i' >= 2 + l and i' <= -1 + N; [l, i, j, 15] -> [1 + l, j, 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and j >= 2 + l and j <= -1 + N }
+### Rstar
+[N] -> { [l, i, j, _v1] -> [l, i, j, _v1]; [l, i, 1 + l, 15] -> [l, i, j', 15] : l >= 0 and i >= 1 + l and i <= -1 + N and j' >= 2 + l and j' <= -1 + N; [l, i, 1 + l, 15] -> [1 + l, i', 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and i' >= 2 + l and i' <= -1 + N; [l, i, j, 15] -> [1 + l, j, 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and j >= 2 + l and j <= -1 + N }
+i j 0 1--
+i j 0 2--
+i j 1 0--
+i j 1 2--
+i j 2 0--
+i j 2 1--
+### REPR
+[N] -> { [l, i, j, 15] : l >= 0 and i >= 1 + l and i >= 2 and i <= -1 + N and j >= 1 + l and j <= -1 + N; [l, i, 0, 10] : N >= 2 and l >= 0 and i >= 1 + l and i <= -1 + N; [0, 1, 1, 15] : N >= 2 }
+RSCHED obliczanie :
+[N] -> { [l, i, 1 + l, 15] -> [l, i, j', 15] : l >= 0 and i >= 1 + l and i <= -1 + N and j' >= 2 + l and j' <= -1 + N and l <= -2 + N and i >= 2; [l, i, j, 15] -> [l, i, j, 15] : l >= 0 and i >= 1 + l and i >= 2 and i <= -1 + N and j >= 1 + l and j <= -1 + N; [l, i, 1 + l, 15] -> [1 + l, i', 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and i' >= 2 + l and i' <= -1 + N and l <= -2 + N and i >= 2; [l, i, j, 15] -> [1 + l, j, 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and j >= 2 + l and j <= -1 + N and i >= 2; [l, i, 0, 10] -> [l, i, 0, 10] : N >= 2 and l >= 0 and i >= 1 + l and i <= -1 + N; [0, 1, 1, 15] -> [0, 1, j', 15] : j' >= 2 and N >= 2 and j' <= -1 + N; [0, 1, 1, 15] -> [0, 1, 1, 15] : N >= 2 }
+IND0->IND
+[N] -> { [l, i, j, v] -> [l', i', j', v'] : 1 = 0 }
+i razem
+[N] -> { [l, i, 1 + l, 15] -> [l, i, j', 15] : l >= 0 and i >= 1 + l and i >= 2 and i <= -1 + N and j' >= 2 + l and j' <= -1 + N; [l, i, j, 15] -> [l, i, j, 15] : l >= 0 and i >= 1 + l and i >= 2 and i <= -1 + N and j >= 1 + l and j <= -1 + N; [l, i, 1 + l, 15] -> [1 + l, i', 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and i' >= 2 + l and i' <= -1 + N; [l, i, j, 15] -> [1 + l, j, 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and j >= 2 + l and j <= -1 + N; [l, i, 0, 10] -> [l, i, 0, 10] : l >= 0 and i >= 1 + l and i <= -1 + N; [0, 1, 1, 15] -> [0, 1, j', 15] : j' >= 1 and j' <= -1 + N }
+### RSCHED
+[N] -> { [l, i, 1 + l, 15] -> [l, i, j', 15] : l >= 0 and i >= 1 + l and i >= 2 and i <= -1 + N and j' >= 2 + l and j' <= -1 + N; [l, i, j, 15] -> [l, i, j, 15] : l >= 0 and i >= 1 + l and i >= 2 and i <= -1 + N and j >= 1 + l and j <= -1 + N; [l, i, 1 + l, 15] -> [1 + l, i', 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and i' >= 2 + l and i' <= -1 + N; [l, i, j, 15] -> [1 + l, j, 0, 10] : l >= 0 and i >= 2 + l and i <= -1 + N and j >= 2 + l and j <= -1 + N; [l, i, 0, 10] -> [l, i, 0, 10] : l >= 0 and i >= 1 + l and i <= -1 + N; [0, 1, 1, 15] -> [0, 1, j', 15] : j' >= 1 and j' <= -1 + N }
+### Check 
+OK
+i j 0 1joinable
+i j 0 2--
+i j 0 3joinable
+i j 0 4--
+i j 0 5--
+i j 1 0joinable
+i j 1 2joinable
+i j 1 4--
+i j 1 5--
+i j 2 4--
+i j 2 5--
+i j 3 4--
+i j 3 5--
+i j 4 0--
+i j 4 1--
+i j 4 2--
+i j 4 3--
+i j 4 5--
+i j 5 0--
+i j 5 1--
+i j 5 2--
+i j 5 3--
+i j 5 4--
+# DOMAIN RSCHED
+[N] -> { [l, i, j, 15] : l >= 0 and i >= 1 + l and i >= 2 and i <= -1 + N and j >= 1 + l and j <= -1 + N; [l, i, 0, 10] : l >= 0 and i >= 1 + l and i <= -1 + N; [0, 1, 1, 15] : N >= 2 }
+for (int t1 = 0; t1 < N - 1; t1 += 1) {
+  for (int t3 = t1 + 1; t3 < N; t3 += 1)
+    (0, t1, 1, t3, 2, 0, 10);
+  for (int t3 = t1 + 1; t3 < N; t3 += 1) {
+    if (t3 >= 2) {
+      for (int t5 = t1 + 1; t5 < N; t5 += 1)
+        (0, t1, 3, t3, 4, t5, 15);
+    } else
+      (0, 0, 3, 1, 4, 1, 15);
+  }
+}
+
+==========================
+OUTPUT CODE
+for (t1 = 0; t1 < N - 1; t1 += 1) {
+  for (t3 = t1 + 1; t3 < N; t3 += 1)
+    if (N >= t3 + 1 && t3 >= t1 + 1 && t1 >= 0) {
+      a[t1][t3]=a[t1][t3]/a[t1][t1];
+    }
+  for (t3 = t1 + 1; t3 < N; t3 += 1) {
+    if (t3 >= 2) {
+      for (t5 = t1 + 1; t5 < N; t5 += 1)
+        if (N >= t5 + 1 && t3 >= 2 && N >= t3 + 1 && t5 >= t1 + 1 && t1 >= 0) {
+          #pragma omp parallel for
+          for (c1 = t1; c1 <= min(t3 - 1, t1 + 1); c1 += 1) {
+            if (c1 == t1 + 1) {
+              if (t5 >= t1 + 2) {
+                a[t1+1][t5]=a[t1+1][t5]/a[t1+1][t1+1];
+              } else
+                for (c3 = t5 + 1; c3 < N; c3 += 1) {
+                  a[t5][c3]=a[t5][c3]/a[t5][t5];
+                }
+            } else {
+              a[t3][t5]=a[t3][t5]-a[t3][t1]*a[t1][t5];
+              if (t1 + 1 == t5) {
+                for (c5 = t5 + 1; c5 < N; c5 += 1) {
+                  a[t3][c5]=a[t3][c5]-a[t3][t5-1]*a[t5-1][c5];
+                }
+              }
+            }
+          }
+        } else if (t5 == 1 && t3 == 1 && t1 == 0)
+          #pragma omp parallel for
+          for (c5 = 1; c5 < N; c5 += 1) {
+            a[1][c5]=a[1][c5]-a[1][0]*a[0][c5];
+          }
+    } else
+      #pragma omp parallel for
+      for (c5 = 1; c5 < N; c5 += 1) {
+        a[1][c5]=a[1][c5]-a[1][0]*a[0][c5];
+      }
+  }
+}
+
+

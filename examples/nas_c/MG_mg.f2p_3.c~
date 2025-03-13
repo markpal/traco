@@ -1,0 +1,17 @@
+int main(){
+#pragma scop
+
+for(k = N1; k <= N2; k++){
+  for(ax = 1; ax <= 3; ax++){
+    mi[ax][k] = 2 + ng[ax][k];
+  }
+  
+  m1[k] = mi[1][k];
+  m2[k] = mi[2][k];
+  m3[k] = mi[3][k];
+  
+}
+
+
+#pragma endscop
+}

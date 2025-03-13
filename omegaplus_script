@@ -1,0 +1,2 @@
+~/omega/bin/oc < omegaplus_input > omegaplus_output 
+touch lock

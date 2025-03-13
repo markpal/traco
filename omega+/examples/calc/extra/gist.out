@@ -1,0 +1,110 @@
+>>> #
+>>> # Test new gist function with enhanced functionality for
+>>> # inter-dependent modulo equations
+>>> # 
+>>> symbolic n;
+>>> 
+>>> # basic gist function
+>>> #
+>>> R:={[t1,t2]: exists (aa : 2aa = t1 &&  2 <= t1 && t1 <= 8)};
+>>> known := {[t1,t2]: 1 <= t1 <= 9};
+>>> gist R given known;
+{[t1,t2]: Exists ( alpha : 0 = t1+2alpha)}
+>>> 
+>>> 
+>>> # test modulo equations by coprime numbers
+>>> #
+>>> is := { [i,j] : 1 <= i <= n && i <= j <= n && exists (alpha, beta: i= 1+4*alpha && j = i+3*beta)  };
+>>> is;
+{[i,j]: Exists ( alpha : 3+i+12alpha = 4j && 1 <= i <= j <= n)}
+>>> known := { [i,j] : 1 <= i <= n && exists (alpha: i = 1+4*alpha) };
+>>> gist is given known;
+{[i,j]: Exists ( alpha : j = i+3alpha && i <= j <= n)}
+>>> 
+>>> codegen is;
+for(t1 = 1; t1 <= n; t1 += 4) {
+  for(t2 = t1; t2 <= n; t2 += 3) {
+    s1(t1,t2);
+  }
+}
+
+>>> 
+>>> # test modulo equations by numbers in multiple
+>>> #
+>>> is := { [i,j] : 1 <= i <= n && i <= j <= n && exists (alpha, beta: i= 1+4*alpha && j = i+8*beta)  };
+>>> is;
+{[i,j]: Exists ( alpha,beta : i+8alpha = j && j = 1+4beta && 1 <= i <= j <= n)}
+>>> known := { [i,j] : 1 <= i <= n && exists (alpha: i = 1+4*alpha) };
+>>> gist is given known;
+{[i,j]: Exists ( alpha : j = i+8alpha && i <= j <= n)}
+>>> 
+>>> codegen is;
+for(t1 = 1; t1 <= n; t1 += 4) {
+  for(t2 = t1; t2 <= n; t2 += 8) {
+    s1(t1,t2);
+  }
+}
+
+>>> 
+>>> is := { [i,j] : 1 <= i <= n && i <= j <= n && exists (alpha, beta: i= 1+256*alpha && j = i+8*beta)  };
+>>> is;
+{[i,j]: Exists ( alpha,beta : j = 1+8alpha && i = 1+256beta && 1 <= i <= j <= n)}
+>>> known := { [i,j] : 1 <= i <= n && exists (alpha: i = 1+256*alpha) };
+>>> gist is given known;
+{[i,j]: Exists ( alpha : j+8alpha = 1 && i <= j <= n)}
+>>> 
+>>> codegen is;
+for(t1 = 1; t1 <= n; t1 += 256) {
+  for(t2 = t1; t2 <= n; t2 += 8) {
+    s1(t1,t2);
+  }
+}
+
+>>> 
+>>> # test modulo equations by gcd != 1
+>>> #
+>>> is := { [i,j] : 1 <= i <= n && i <= j <= n && exists (alpha, beta: i= 1+4*alpha && j = i+1+6*beta)  };
+>>> is;
+{[i,j]: Exists ( alpha,beta : i+2j+12alpha = 5 && 2beta = j && 1 <= i < j <= n)}
+>>> known := { [i,j] : 1 <= i <= n && exists (alpha: i = 1+4*alpha) };
+>>> gist is given known;
+{[i,j]: Exists ( alpha : 2+2i+j = 6alpha && i < j <= n)}
+>>> codegen is;
+for(t1 = 1; t1 <= n-1; t1 += 4) {
+  for(t2 = t1+1; t2 <= n; t2 += 6) {
+    s1(t1,t2);
+  }
+}
+
+>>> 
+>>> is := { [i,j] : 1 <= i <= n && i <= j <= n && exists (alpha, beta: i= 1+6*alpha && j = i+4*beta)  };
+>>> is;
+{[i,j]: Exists ( alpha,beta : i+3j+12alpha = 4 && 2beta = 1+j && 1 <= i <= j <= n)}
+>>> known := { [i,j] : 1 <= i <= n && exists (alpha: i = 1+6*alpha) };
+>>> gist is given known;
+{[i,j]: Exists ( alpha : j = i+4alpha && i <= j <= n)}
+>>> codegen is;
+for(t1 = 1; t1 <= n; t1 += 6) {
+  for(t2 = t1; t2 <= n; t2 += 4) {
+    s1(t1,t2);
+  }
+}
+
+>>> 
+>>> # gist won't simpilfy to the result we want, but the code generation
+>>> # takes care of it
+>>> #
+>>> is := { [i,j] : 1 <= i <= n && i <= j <= n && exists (alpha, beta: i= 1+12*alpha && j = i+8*beta)  };
+>>> is;
+{[i,j]: Exists ( alpha,beta : 2+i+24alpha = 3j && j = 1+4beta && 1 <= i <= j <= n)}
+>>> known := { [i,j] : 1 <= i <= n && exists (alpha: i = 1+12*alpha) };
+>>> gist is given known;
+{[i,j]: Exists ( alpha : 2+i+8alpha = 3j && i <= j <= n)}
+>>> codegen is;
+for(t1 = 1; t1 <= n; t1 += 12) {
+  for(t2 = t1; t2 <= n; t2 += 8) {
+    s1(t1,t2);
+  }
+}
+
+

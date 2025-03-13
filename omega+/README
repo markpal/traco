@@ -1,0 +1,102 @@
+Omega+ Source Release, version 2.1
+
+This release of Omega+ software includes:
+  * The Omega arithmetic library, a set of routines for manipulating integer
+    linear constraints over integer variables in first order logic
+    (Presburger arithmetic), and operations on integer sets and relations.
+  * The Omega code generation library, a set of routines for generating code
+    to scan the points in a union of polytopes. 
+  * The Omega calculator, a command-line interface to the Omega arithmetic
+    and code generation libraries.
+
+
+See LICENSE file for copyright information.
+
+
+What is new?
+============
+
+version 2.1:
+  * Updated "effort" parameter's meaning in MMGenerateCode: value n
+    (n >= 0, default to 1) means that control overheads are removed
+    from all n-depth innermost loops.
+  * Enhanced stride handling in the code generation.
+  * Support code generation for a set of iteration spaces with different
+    dimensionality.
+  * New ConvexRepresentation that reduces the number of conjuncts in a union
+    (deprecate CheckForConvexPairs and CheckForConvexRepresentation), e.g.
+    ConvexRepresentation({[i]: 1<=i<=100} union {[i]: 90<=i<=200})
+                       = {[i]: 1<=i<=200}.
+  * New RectHull that complements ConvexHull.
+  * Handle floor/ceiling defined variables cleanly in output code.
+  * Use namespace omega for the library.
+
+version 2.0:
+  * Improved internal code generation interface so that it generates both
+    string and suif ouput now, and more easily extendable for new compiler
+    intermediate representations.
+  * Improved gist function so that integer modular constraints are handled
+    more gracefully, e.g.
+    gist({[i,j]: 1 <= i<= j <= n && exists (alpha: 3+i+12*alpha = 4*j)},
+         {[i,j]: 1 <= i<= n && exists (alpha: i = 1+4*alpha)})
+       = {[i,j]: i <= j<= n && exists (alpha: j = i+3*alpha)}.
+  * Merge duplicate if-conditions in generated code, which might still miss
+    a few opportunities due to the way AST is constructed.
+  * Correct output/input variable substitution for non-unimodular
+    mapping relations.
+  * Deprecate Omega's assert/Exit interface.
+  * Some fixing in calculator's parsing and interactive interface.
+
+version 1.2:
+  * Support for code generation with memory mappings, as described in
+    Tina Shen's MASPLAS '98 paper. This is available in oc via the
+    tcodegen function; see examples/calc/mm* for examples.
+  * Use of the compile-time flags -DSTILL_CHECK_MULT=1 -DNDEBUG turns off 
+    all assertions and chechk _except_ some checks for integer overflow
+    during variable elimination in the omega core. Unless you know a priori
+    that overflow cannot occur, you should use this instead of just plain
+    -DNDEBUG when optimizing.
+  * You can now use "assertUnsatisfiable relation" to cause oc to quit if
+    "relation" could be satisfiable. This is mainly useful when running oc
+    in a script.
+
+version 1.1:
+  * An exact convex hull computation.
+  * An improved system for handling inexact relations, including taking
+    upper and lower bounds, checking for subsets, and checking tautologies.
+  * Better handling of existentially quantified variables: we can now
+    negate and generate code for sets like:
+    {[i]: 1 <= i <= n && exists (alpha: i <= 10*alpha <= i+k)}.
+  * An Example operator, that gives a sample solution to set or relation.
+
+version 0.90:
+  * Initial release.
+
+
+DIRECTORIES 
+===========
+
+omega/
+  omega_lib/     source files for the arithmetic library
+  code_gen/      source files for the code generation library
+  omega_calc/    source files for the calculator
+  examples/
+    calc/        examples of using the calculator
+    lib/         examples of using the arithmetic library
+  bin/           links to executables: oc
+  lib/           links to libraries: libomega.a, libcode_gen.a
+  include/       links to header files
+
+
+DOCUMENTATION AND QUESTIONS
+===========================
+
+Documentation for the Omega calculator is in omega/omega_calc/doc;
+for the Omega arithmetic library is in omega/omega_lib/doc.
+
+Users can visit the original Omega Project website or its git repository:
+  http://www.cs.umd.edu/projects/omega/
+  http://github.com/davewathaverford/the-omega-project/
+
+For questions and bugs related to this release:
+  mailto:chunchen@cs.utah.edu

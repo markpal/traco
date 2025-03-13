@@ -1,0 +1,109 @@
+//
+// This file is part of the Bones source-to-source compiler examples. The C-code
+// is largely identical in terms of functionality and variable naming to the code
+// found in PolyBench/C version 3.2. For more information on PolyBench/C or Bones
+// please use the contact information below.
+//
+// == More information on PolyBench/C
+// Contact............Louis-Noel Pouchet <pouchet@cse.ohio-state.edu>
+// Web address........http://polybench.sourceforge.net/
+//
+// == More information on Bones
+// Contact............Cedric Nugteren <c.nugteren@tue.nl>
+// Web address........http://parse.ele.tue.nl/bones/
+//
+// == File information
+// Filename...........benchmark/gemver.c
+// Author.............Cedric Nugteren
+// Last modified on...04-April-2012
+//
+
+#include "common.h"
+#include<sys/time.h>
+
+// This is 'gemver', a general matrix vector multiplication and matrix addition kernel
+int main(int argc, char *argv[]) {
+	int i,j;
+
+	// Declare arrays on the stack
+	float **A = new float*[NX];
+	for (i=0; i<NX; i++)
+	  A[i] = new float[NX];
+	float *u1 = new float[NX];
+	float *u2 = new float[NX];
+	float *v1 = new float[NX];
+	float *v2 = new float[NX];
+	float *w = new float[NX];
+	float *x= new float[NX];
+	float *y = new float[NX];
+	float *z = new float[NX];
+
+	// Set the constants
+	int alpha = 43532;
+	int beta = 12313;
+
+	// Set the input data
+	for (i=0; i<NX; i++) {
+		u1[i] = i;
+		u2[i] = (i+1)/NX/2.0;
+		v1[i] = (i+1)/NX/4.0;
+		v2[i] = (i+1)/NX/6.0;
+		w[i] = 0.0;
+		x[i] = 0.0;
+		y[i] = (i+1)/NX/8.0;
+		z[i] = (i+1)/NX/9.0;
+		for (j=0; j<NX; j++) {
+			A[i][j] = ((float) i*j) / NX;
+		}
+	}
+
+	// Perform the computation
+
+  // variables to meassure time
+  struct timeval s1, f1;
+  double  duration, duration1;
+
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  gettimeofday(&s1, NULL);
+
+
+
+#pragma omp parallel for private(i,j)
+	for (i=0; i<NX; i++) {
+    		for (j=0; j<NX; j++) {
+    			A[i][j] = A[i][j] + u1[i] * v1[j] + u2[i] * v2[j];
+  		}
+	}
+#pragma omp parallel for private(i,j)
+	for (i=0; i<NX; i++) {
+    		for (j=0; j<NX; j++) {
+    			x[i] = x[i] + beta * A[j][i] * y[j];
+  		}
+	}
+#pragma omp parallel for private(i)
+	for (i=0; i<NX; i++) {
+  		x[i] = x[i] + z[i];
+	}
+#pragma omp parallel for private(i,j)
+	for (i=0; i<NX; i++) {
+    		for (j=0; j<NX; j++) {
+    			w[i] = w[i] +  alpha * A[i][j] * x[j];
+  		}
+	}
+
+
+
+
+  gettimeofday(&f1, NULL);
+
+  duration = (double)f1.tv_sec + ((double)f1.tv_usec/1000000) - ((double)s1.tv_sec + ((double)s1.tv_usec/1000000));
+  printf("Czas: %2.3f seconds\n", duration);
+
+
+
+	// Clean-up and exit the function
+	fflush(stdout);
+	return 0;
+}
+

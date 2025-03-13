@@ -1,0 +1,83 @@
+!!!
+FOR UBUNTU USERS
+Please see install_ubuntu script. It should install all prerequisites.
+Tested with LUbuntu 14.04 and gcc 4.9.1
+!!!
+
+Required software
+
+flex / bison
+libgmp-dev
+libntl-dev
+realpath
+
+boost 
+boost-regex (with dev)
+boost-graph (with-dev)
+
+
+barvinok   # check path in 'barv_script' file
+
+python
+python-pip
+python-dev
+
+pip install easyprocess
+pip install islpy
+pip install gv
+
+graphviz            
+libgraphviz4       
+libgv-python        
+python-pygraphviz   
+python-pydot
+pip install pexpect
+easy_install python-graph-core
+easy_install python-graph-dot
+
+
+Fix for problem:
+Couldn't import dot_parser, loading of dot files will not be possible
+
+sudo pip uninstall pyparsing
+sudo pip install pyparsing==1.5.7
+sudo pip install pydot
+
+
+
+All above can be found in Ubuntu Packages
+
+----
+make all
+make framework
+----
+
+
+Optionally
+with root privileges
+ln -s path_to/issf /usr/bin/issf
+
+Usage:  see issf command
+
+
+-----
+
+py/gen.py - modifications for framework/obj/framework
+
+To use codegen from CLOOG/barvinok set path in barv_script.
+Version 0.36 of barvinok is supported.
+
+--codegen=1
+
+To use codegen from Omega+ set path in omegaplus_script.
+
+--codegen=2
+
+To use Omega Transitive Closure or newer functions set flag
+
+--tc=0,1,2 
+
+Optionally
+Cloog
+Wolfram Mathematica 6 (no required for compilation)
+

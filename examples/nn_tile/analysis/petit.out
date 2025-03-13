@@ -1,0 +1,27 @@
+flow    10: sum(out1)       -->  12: sum(out1)       (0)             [ M]
+{[out1] -> [out1,hid] : 0 <= out1 < outputNeurons && 0 <= hid < hiddenNeurons}
+exact dd: {[0]}
+flow    10: sum(out1)       -->  14: sum(out1)       (0)             [ M]
+{[out1] -> [out1] : 0 <= out1 < outputNeurons}
+exact dd: {[0]}
+flow    10: sum(out1)       -->  15: sum(out1)       (0)             [ M]
+{[out1] -> [out1] : 0 <= out1 < outputNeurons}
+exact dd: {[0]}
+output  10: sum(out1)       -->  12: sum(out1)       (0)             [ M]
+{[out1] -> [out1,hid] : 0 <= out1 < outputNeurons && 0 <= hid < hiddenNeurons}
+exact dd: {[0]}
+output  10: sum(out1)       -->  14: sum(out1)       (0)             [ M]
+{[out1] -> [out1] : 0 <= out1 < outputNeurons}
+exact dd: {[0]}
+reduce  12: sum(out1)       -->  14: sum(out1)       (0)             [ M]
+{[out1,hid] -> [out1] : 0 <= out1 < outputNeurons && 0 <= hid < hiddenNeurons}
+exact dd: {[0]}
+reduce  12: sum(out1)       -->  12: sum(out1)       (0,+)           [ M]
+{[out1,hid] -> [out1,hid'] : 0 <= hid < hid' < hiddenNeurons && 0 <= out1 < outputNeurons}
+exact dd: {[0,In_2]: 1 <= In_2}
+flow    12: sum(out1)       -->  15: sum(out1)       (0)             [ M]
+{[out1,hid] -> [out1] : 0 <= out1 < outputNeurons && 0 <= hid < hiddenNeurons}
+exact dd: {[0]}
+flow    14: sum(out1)       -->  15: sum(out1)       (0)             [ M]
+{[out1] -> [out1] : 0 <= out1 < outputNeurons}
+exact dd: {[0]}

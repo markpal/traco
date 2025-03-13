@@ -1,0 +1,36 @@
+anti    11: S(i,j)          -->  13: S(i,j)          (0,0)           [ Mo]
+{[i,j,k] -> [i,j] : j < N && 0 <= k && i+k < j && 0 <= i}
+exact dd: {[0,0]}
+anti    11: S(i,j)          -->  11: S(i,j)          (0,0,+)         [ Mo]
+{[i,j,k] -> [i,j,k'] : 0 <= k < k' && j < N && i+k' < j && 0 <= i}
+exact dd: {[0,0,In_3]: 1 <= In_3}
+flow    11: S(i,j)          -->  11: S(i,k+i)        (0,+,*)         [ MO]
+{[i,j,k] -> [i,j',j-i] : j < j' < N && 0 <= k && i+k < j && 0 <= i}
+may dd: {[0,In_2,In_3]: 1 <= In_2 && 1 <= In_3}
+flow    11: S(i,j)          -->  11: S(k+i+1,j)      (+,0,*)         [ MO]
+{[i,j,k] -> [i',j,i-i'-1] : 0 <= i' < i && j < N && 0 <= k && i+k < j}
+may dd: {[In_1,0,In_3]: In_1 <= -In_3-1, -1}
+flow    11: S(i,j)          -->  11: S(i,j)          (0,0,+)         [ MO]
+{[i,j,k] -> [i,j,k'] : 0 <= k < k' && j < N && 0 <= i && i+k' < j}
+exact dd: {[0,0,In_3]: 1 <= In_3}
+flow    11: S(i,j)          -->  13: S(i,j)          (0,0)           [ MO]
+{[i,j,k] -> [i,j] : j < N && 0 <= k && i+k < j && 0 <= i}
+exact dd: {[0,0]}
+flow    11: S(i,j)          -->  13: S(i+1,j-1)      (-1#,1)         [ MO]
+{[i,j,k] -> [i-1,j+1] : j <= N-2 && 0 <= k && i+k < j && 1 <= i}
+exact dd: {[-1,1]}
+output  11: S(i,j)          -->  11: S(i,j)          (0,0,+)         [ Mo]
+{[i,j,k] -> [i,j,k'] : 0 <= k < k' && j < N && 0 <= i && i+k' < j}
+exact dd: {[0,0,In_3]: 1 <= In_3}
+output  11: S(i,j)          -->  13: S(i,j)          (0,0)           [ Mo]
+{[i,j,k] -> [i,j] : j < N && 0 <= k && i+k < j && 0 <= i}
+exact dd: {[0,0]}
+flow    13: S(i,j)          -->  11: S(i,k+i)        (0,+)           [ MO]
+{[i,j] -> [i,j',j-i] : 0 <= i < j < j' < N}
+may dd: {[0,In_2]: 1 <= In_2}
+flow    13: S(i,j)          -->  11: S(k+i+1,j)      (+,0)           [ MO]
+{[i,j] -> [i',j,i-i'-1] : 0 <= i' < i < j < N}
+may dd: {[In_1,0]: In_1 <= -1}
+flow    13: S(i,j)          -->  13: S(i+1,j-1)      (-1#,1)         [ MO]
+{[i,j] -> [i-1,j+1] : 1 <= i < j <= N-2}
+exact dd: {[-1,1]}

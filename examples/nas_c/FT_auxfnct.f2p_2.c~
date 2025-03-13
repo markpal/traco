@@ -1,0 +1,8 @@
+for(i = 1; i <= N1; i++){
+  for(k = 1; k <= N2; k++){
+    for(j = 1; j <= N3; j++){
+      y[j][k][i]=y[j][k][i]*twiddle[j][k][i];
+      x[j][k][i]=y[j][k][i];
+    }
+  }
+}

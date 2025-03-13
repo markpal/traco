@@ -1,0 +1,12 @@
+S :=  [N] -> { [j,i] -> [j,i] : 0 <= i < N and 0 <= j < N };
+codegen S;
+S :=  [N] -> { [j,i] -> [i-j,i] : 0 <= i < N and 0 <= j < N and i >= j };
+codegen S;
+S :=  [N] -> { [jj,ii,j,i] -> [ii-jj,ii,i-j,i] : 0<= jj <= N/4 and 0 <= ii <= N/4 and ii*4 <= i < ii*4 + ii and jj*4 <= j < jj*4 + jj and i >= j and ii >= jj and i < N and j < N};
+codegen S;
+S :=  [N] -> { [jj,ii,i,j] -> [ii-jj,ii,i-j,j] : 0 <= jj <= N/4 and 0 <= ii <= N/4 and  
+0 <= i < N and 0 <= j <=N and ii*4 <= i < (ii+1)*4 and jj*4 <= j < (jj+1)*4 and ((ii=jj and i>j) or ii>jj)};
+codegen S;
+S :=  [N] -> { [jj,ii,j,i] -> [ii-jj,ii,i-j,i] : 0 <= jj <= N/4 and 0 <= ii <= N/4 and  
+0 <= i < N and 0 <= j <=N and ii*4 <= i < (ii+1)*4 and jj*4 <= j < (jj+1)*4 and ((ii=jj and i>j) or ii>jj)};
+codegen S;
