@@ -8,7 +8,7 @@ from pygraph.classes.digraph import digraph
 from pygraph.readwrite.dot import write
 
 import functions
-from easyprocess import Proc
+from easyprocess import EasyProcess
 import gen
 
 
@@ -30,7 +30,7 @@ path_petit_rel = path_issf + "/petit/obj/petit -bg -4 "
 
 def Petit_Rel(file):
     cmd = path_petit_rel + " " + file
-    return Proc(cmd).call(timeout=5).stdout
+    return EasyProcess(cmd).call(timeout=5).stdout
 
 
 
