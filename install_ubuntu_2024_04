@@ -16,7 +16,6 @@ cd barvinok-0.41
 make
 sudo make install  //optional
 
-Verify the path in barv_script
 
 CLAN
 
