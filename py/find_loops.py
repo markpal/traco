@@ -32,14 +32,17 @@ rplus_file = ''
 
 
 # check barvinok
-barv_location = os.path.dirname(sys.argv[0]).replace('py', 'barv_script')    
-barv_script = open(barv_location, 'r').read().split(' ')[0]
+#barv_location = os.path.dirname(sys.argv[0]).replace('py', 'barv_script')
+#barv_script = open(barv_location, 'r').read().split(' ')[0]
 
-if(not os.path.exists(barv_script)):
-    print("Barvinok not found. Please setup the tool or check a path in the file: barv_script")
-    sys.exit()
-else:
-    iscc.barv_script = barv_script 
+#if(not os.path.exists(barv_script)):
+#    print("Barvinok not found. Please setup the tool or check a path in the file: barv_script")
+#    sys.exit()
+#else:
+#    iscc.barv_script = barv_script
+
+iscc.barv_script = "barvinok-0.41/iscc"
+
 
 # delete the previous work
 if(os.path.exists('tmp')):
