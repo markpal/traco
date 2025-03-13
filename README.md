@@ -26,7 +26,7 @@ tar xvzf clan-0.8.0.tar.gz & cd clan-0.8.0 & ./configure & make & sudo make inst
 
 git clone https://github.com/tobiasgrosser/islplot
 
-cd islplot & sudo python3 setup.py install
+cd islplot & sudo python3 setup.py install & cd ..
 
 Good Luck!
 
