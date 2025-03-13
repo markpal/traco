@@ -55,7 +55,7 @@ def parse(lines, cl, symb_prefix):
                     item = re.findall(r'\([^\(]+\)', m)[0].replace('(', '').replace(')', '')
                     #print sd + ' ' + item
 
-                    if(pairs.has_key(sd)):
+                    if sd in pairs:
                         pairs[sd] = pairs[sd] + '+' + item
                     else:
                         pairs[sd] = item
@@ -77,14 +77,13 @@ def parse(lines, cl, symb_prefix):
             map += iterators[i] + ','
         map = map[:-1] + '] -> ['
 
-
         for i in range(0, lev_st[s]):
-            if sch_out.has_key(str(i)):
-#                print sch_out[str(i)]
+            if str(i) in sch_out:  # Replace has_key() with 'in'
+                # print sch_out[str(i)]
                 if s in sch_out[str(i)]:
-#                    if sch_out[str(i)][s]!= '0':
+                    # if sch_out[str(i)][s] != '0':
                     map += sch_out[str(i)][s] + ','
-           # else:
+            # else:
             #    map += iterators[i] + ','
 
         map = map[:-1] + '] : ' + cl.statements[j].domain + '}'
