@@ -5,3 +5,6 @@ Website: traco.sourceforge.net
 Runs on Ubuntu 2024.04, adapted for Python 3 and islpy 2025.1.
 
 See the file:   install_ubuntu_2024_04
+
+Demonstration:
+https://traco.sourceforge.net/nussinov.html
