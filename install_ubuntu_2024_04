@@ -1,0 +1,76 @@
+OMEGA
+
+sudo apt install flex bison
+sudo apt install libboost-regex-dev
+sudo apt install libgmp-dev libntl-dev
+
+make all
+
+----------------
+
+BARVINOK
+
+Unpack barvinok
+cd barvinok-0.41
+./configure
+make
+sudo make install  //optional
+
+Verify path in barv_script
+
+CLAN
+
+Unpack clan
+./configure
+make
+sudo make install //optional
+
+---------------------
+
+TRACO
+
+sudo apt install graphviz graphviz-dev
+
+Python packages
+pip install 
+
+islpy, tqdm, paramiko, graphviz, pygraphviz, python-graph-core, python-graph-dot, 
+easyprocess, termcolor, matplotlib, 
+
+You can use –break-system-packages or other packages policy.
+
+
+ISLPLOT
+
+
+git clone https://github.com/tobiasgrosser/islplot
+cd islplot
+sudo python3 setup.py install
+
+-------------
+Testing
+
+#pragma scop
+for (i = N-1; i >= 0; i--) {
+ for (j = i+1; j < N; j++) {
+  for (k = 0; k < j-i; k++) {
+         S[i][j] = MAX(S[i][k+i] + S[k+i+1][j], S[i][j]); 
+  }
+  S[i][j] = MAX(S[i][j], S[i+1][j-1]) + MAX(i,j);
+ }
+}
+#pragma endscop
+
+./issf nussinov.cpp –tiling5
+
+
+BUGS to SOLVE
+
+
+
+/\__  _\ /\  == \   /\  __ \   /\  ___\   /\  __ \   
+\/_/\ \/ \ \  __<   \ \  __ \  \ \ \____  \ \ \/\ \  
+   \ \_\  \ \_\ \_\  \ \_\ \_\  \ \_____\  \ \_____\ 
+    \/_/   \/_/ /_/   \/_/\/_/   \/_____/   \/_____/ 
+
+March 2025
