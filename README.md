@@ -12,7 +12,9 @@ https://traco.sourceforge.net/nussinov.html
 
 =====
 
-Clone it & Quick Install   -- PLEASE SEE Dockerfile, it works wirth Ubuntu 24
+Clone it & Quick Install   -- PLEASE SEE Dockerfile, it works with Ubuntu 24  
+
+
 
 sudo apt install flex bison libboost-regex-dev libgmp-dev libntl-dev  graphviz graphviz-dev
 
