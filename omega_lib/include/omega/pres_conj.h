@@ -267,7 +267,7 @@ private:
 			      Merge_Action action, Rel_Body *body);
   friend Conjunct* merge_conjs(Conjunct* conj1, Conjunct* conj2,
 			      Merge_Action action){
-  	merge_conjs(conj1, conj2, action, 0);
+  	return merge_conjs(conj1, conj2, action, nullptr);
   }
   friend void      copy_conj_header(Conjunct* to, Conjunct* fr);
 
